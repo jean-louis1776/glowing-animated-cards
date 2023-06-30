@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000000;
+  background-image: radial-gradient(circle, #000000 0%, #242424 100%);
+
+  .container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    padding: 3rem 1rem;
+
+    .card-wrapper {
+      position: relative;
+      will-change: transform, opacity;
+
+      .card {
+        position: relative;
+        width: 320px;
+        height: 450px;
+        background: #232323;
+        border-radius: 20px;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          clip-path: circle(150px at 80% 20%);
+          transition: 0.65s ease-in-out;
+        }
+
+        &:hover::before {
+          clip-path: circle(300px at 80% -20%);
+          background-position: 7.5rem -10rem;
+        }
+
+        &::after {
+          position: absolute;
+          font-weight: 800;
+          font-style: italic;
+          transition: 0.5s ease-out;
+        }
+
+        &:hover::after {
+          transition-delay: 0.3s;
+        }
+
+        .image-wrapper {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10000;
+          width: 100%;
+          height: 220px;
+          transition: 0.75s;
+
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 270px;
+          }
+        }
+
+        .content-wrapper {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 100px;
+          text-align: center;
+          transition: 1s;
+          z-index: 10;
+
+          .title {
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 1.15;
+            color: #fff;
+            margin: 0;
+            transition: 0.5s;
+            opacity: 0;
+            visibility: hidden;
+          }
+
+          .price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-inline: 8px;
+            margin-block: 20px;
+            transition: 0.5s;
+            opacity: 0;
+            visibility: hidden;
+
+            h3 {
+              color: #fff;
+              font-weight: 300;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 2px;
+              margin-right: 10px;
+            }
+
+            span {
+              line-height: 26px;
+              font-size: 14px;
+              color: #fff;
+            }
+          }
+
+          .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 0.5s;
+          }
+        }
+
+        &:hover {
+          .image-wrapper {
+            top: 0%;
+            transform: translateY(0%);
+          }
+
+          .content-wrapper {
+            height: 210px;
+
+            .title,
+            .price {
+              opacity: 1;
+              visibility: visible;
+              transition-delay: 0.5s;
+            }
+
+            .btn {
+              opacity: 1;
+              transform: translateY(0px);
+              transition-delay: 0.75s;
+            }
+          }
+        }
+      }
+    }
+
+    .subaru-card::after,
+    .mitsubishi-card::after,
+    .nissan-card::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      filter: blur(12px);
+      animation: animateGlow 2.5s linear infinite;
+    }
+
+    .subaru-card {
+      &::after {
+        background: linear-gradient(
+          to left,
+          #c4dcff,
+          #a4beff,
+          #85a1f9,
+          #6685da,
+          #466abc,
+          #6685da,
+          #85a1f9,
+          #a4beff,
+          #c4dcff
+        );
+        background-size: 190% 190%;
+      }
+
+      .card {
+        &::before {
+          background: #466abc;
+          background-image: url(../../assets/subaru-logo.png);
+          background-size: 50%;
+          background-repeat: no-repeat;
+          background-position: 8.5rem 2rem;
+        }
+
+        &::after {
+          content: "Subaru";
+          top: 65%;
+          left: 2%;
+          font-size: 5em;
+          color: rgba(25, 171, 255, 0.05);
+        }
+
+        &:hover::after {
+          top: 40%;
+        }
+
+        .content-wrapper {
+          .btn {
+            background: #466abc;
+            color: #fff;
+            box-shadow: 0px 5px 15px 2px rgba(62, 101, 131, 0.2);
+          }
+        }
+      }
+    }
+
+    .mitsubishi-card {
+      &::after {
+        background: linear-gradient(
+          to left,
+          #ff8484,
+          #fa6a6a,
+          #f54949,
+          #f80000,
+          #d40606,
+          #f80000,
+          #f54949,
+          #fa6a6a,
+          #ff8484
+        );
+        background-size: 190% 190%;
+      }
+
+      .card {
+        &::before {
+          background: #a20000;
+          background-image: url(../../assets/mitsibishi-logo.png);
+          background-size: 40%;
+          background-repeat: no-repeat;
+          background-position: 9.75rem 2rem;
+        }
+
+        &::after {
+          content: "Mitsubishi";
+          top: 70%;
+          left: 3%;
+          font-size: 3.4em;
+          color: rgba(243, 182, 182, 0.05);
+        }
+
+        &:hover::after {
+          top: 45%;
+        }
+
+        .content-wrapper {
+          .btn {
+            background: #a20000;
+            color: #fff;
+            box-shadow: 0px 5px 15px 2px rgba(131, 62, 62, 0.2);
+          }
+        }
+      }
+    }
+
+    .nissan-card {
+      &::after {
+        background: linear-gradient(
+          to left,
+          #ffffff,
+          #fbfbf9,
+          #dfded9,
+          #afaeae,
+          #949494,
+          #afaeae,
+          #dfded9,
+          #fbfbf9,
+          #ffffff
+        );
+        background-size: 190% 190%;
+      }
+
+      .card {
+        &::before {
+          background: #fbfbf9;
+          background-image: url(../../assets/nissan-logo.png);
+          background-size: 40%;
+          background-repeat: no-repeat;
+          background-position: 9.75rem 2rem;
+        }
+
+        &::after {
+          content: "Nissan";
+          top: 65%;
+          left: 5%;
+          font-size: 5em;
+          color: rgba(255, 255, 255, 0.05);
+        }
+
+        &:hover::after {
+          top: 40%;
+        }
+
+        .content-wrapper {
+          .btn {
+            background: #fbfbf9;
+            color: #232323;
+            box-shadow: 0px 5px 15px 2px rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
