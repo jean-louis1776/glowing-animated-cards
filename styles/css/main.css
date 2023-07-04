@@ -37,6 +37,7 @@ body .container {
 }
 body .container .card-wrapper {
   position: relative;
+  will-change: transform, opacity;
 }
 body .container .card-wrapper .card {
   position: relative;
@@ -204,6 +205,7 @@ body .container .nissan-card::after {
   z-index: -1;
   height: 100%;
   width: 100%;
+  border-radius: 20px;
   -webkit-filter: blur(12px);
           filter: blur(12px);
   -webkit-animation: animateGlow 2.5s linear infinite;

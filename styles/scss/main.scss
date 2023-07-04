@@ -1,5 +1,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+$subaru-glow-bg: linear-gradient(
+  to left,
+  #c4dcff,
+  #a4beff,
+  #85a1f9,
+  #6685da,
+  #466abc,
+  #6685da,
+  #85a1f9,
+  #a4beff,
+  #c4dcff
+);
+$subaru-bg-color: #466abc;
+$subaru-box-shadow: rgba(62, 101, 131, 0.2);
+$subaru-color: rgba(25, 171, 255, 0.05);
+
+$mitsubishi-glow-bg: linear-gradient(
+  to left,
+  #ff8484,
+  #fa6a6a,
+  #f54949,
+  #f80000,
+  #d40606,
+  #f80000,
+  #f54949,
+  #fa6a6a,
+  #ff8484
+);
+$mitsubishi-bg-color: #a20000;
+$mitsubishi-box-shadow: rgba(131, 62, 62, 0.2);
+$mitsubishi-color: rgba(243, 182, 182, 0.05);
+
+$nissan-glow-bg: linear-gradient(
+  to left,
+  #ffffff,
+  #fbfbf9,
+  #dfded9,
+  #afaeae,
+  #949494,
+  #afaeae,
+  #dfded9,
+  #fbfbf9,
+  #ffffff
+);
+$nissan-bg-color: #fbfbf9;
+$nissan-box-shadow: rgba(255, 255, 255, 0.2);
+$nissan-color: rgba(255, 255, 255, 0.05);
+
 * {
   margin: 0;
   padding: 0;
@@ -175,30 +223,20 @@ body {
       z-index: -1;
       height: 100%;
       width: 100%;
+      border-radius: 20px;
       filter: blur(12px);
       animation: animateGlow 2.5s linear infinite;
     }
 
     .subaru-card {
       &::after {
-        background: linear-gradient(
-          to left,
-          #c4dcff,
-          #a4beff,
-          #85a1f9,
-          #6685da,
-          #466abc,
-          #6685da,
-          #85a1f9,
-          #a4beff,
-          #c4dcff
-        );
+        background: $subaru-glow-bg;
         background-size: 190% 190%;
       }
 
       .card {
         &::before {
-          background: #466abc;
+          background: $subaru-bg-color;
           background-image: url(../../assets/subaru-logo.png);
           background-size: 50%;
           background-repeat: no-repeat;
@@ -210,7 +248,7 @@ body {
           top: 65%;
           left: 2%;
           font-size: 5em;
-          color: rgba(25, 171, 255, 0.05);
+          color: $subaru-color;
         }
 
         &:hover::after {
@@ -219,9 +257,9 @@ body {
 
         .content-wrapper {
           .btn {
-            background: #466abc;
+            background: $subaru-bg-color;
             color: #fff;
-            box-shadow: 0px 5px 15px 2px rgba(62, 101, 131, 0.2);
+            box-shadow: 0px 5px 15px 2px $subaru-box-shadow;
           }
         }
       }
@@ -229,24 +267,13 @@ body {
 
     .mitsubishi-card {
       &::after {
-        background: linear-gradient(
-          to left,
-          #ff8484,
-          #fa6a6a,
-          #f54949,
-          #f80000,
-          #d40606,
-          #f80000,
-          #f54949,
-          #fa6a6a,
-          #ff8484
-        );
+        background: $mitsubishi-glow-bg;
         background-size: 190% 190%;
       }
 
       .card {
         &::before {
-          background: #a20000;
+          background: $mitsubishi-bg-color;
           background-image: url(../../assets/mitsibishi-logo.png);
           background-size: 40%;
           background-repeat: no-repeat;
@@ -258,7 +285,7 @@ body {
           top: 70%;
           left: 3%;
           font-size: 3.4em;
-          color: rgba(243, 182, 182, 0.05);
+          color: $mitsubishi-color;
         }
 
         &:hover::after {
@@ -267,9 +294,9 @@ body {
 
         .content-wrapper {
           .btn {
-            background: #a20000;
+            background: $mitsubishi-bg-color;
             color: #fff;
-            box-shadow: 0px 5px 15px 2px rgba(131, 62, 62, 0.2);
+            box-shadow: 0px 5px 15px 2px $mitsubishi-box-shadow;
           }
         }
       }
@@ -277,24 +304,13 @@ body {
 
     .nissan-card {
       &::after {
-        background: linear-gradient(
-          to left,
-          #ffffff,
-          #fbfbf9,
-          #dfded9,
-          #afaeae,
-          #949494,
-          #afaeae,
-          #dfded9,
-          #fbfbf9,
-          #ffffff
-        );
+        background: $nissan-glow-bg;
         background-size: 190% 190%;
       }
 
       .card {
         &::before {
-          background: #fbfbf9;
+          background: $nissan-bg-color;
           background-image: url(../../assets/nissan-logo.png);
           background-size: 40%;
           background-repeat: no-repeat;
@@ -306,7 +322,7 @@ body {
           top: 65%;
           left: 5%;
           font-size: 5em;
-          color: rgba(255, 255, 255, 0.05);
+          color: $nissan-color;
         }
 
         &:hover::after {
@@ -315,9 +331,9 @@ body {
 
         .content-wrapper {
           .btn {
-            background: #fbfbf9;
+            background: $nissan-bg-color;
             color: #232323;
-            box-shadow: 0px 5px 15px 2px rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 5px 15px 2px $nissan-box-shadow;
           }
         }
       }
